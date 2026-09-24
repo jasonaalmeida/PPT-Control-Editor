@@ -35,27 +35,30 @@ You host the HTML/JS/CSS files at a public HTTPS URL. Recipients only sideload t
 
 ### A. Host the files
 
-**GitHub Pages (free):**
-```bash
-cd C:\ProjectsAndCode\Personal\PPT-Control-Editor
-git init
-git add src assets
-git commit -m "Initial commit"
-gh repo create PPT-Control-Editor --public --source=. --push
-```
-Then enable Pages: repo Settings → Pages → Source: `main` branch, `/` root.
-Your files land at: `https://YOUR-USERNAME.github.io/PPT-Control-Editor/src/taskpane/taskpane.html`
+**GitHub Pages (free, easiest with GitHub Desktop):**
+1. Open **GitHub Desktop** → **File** → **Add local repository** → point at this folder
+2. Click **Publish repository** → make sure **"Keep this code private"** is UNCHECKED (GitHub Pages free tier needs public repos)
+3. On github.com, go to the new repo → **Settings** → **Pages**
+4. Under **Build and deployment**, set **Source** = "Deploy from a branch", **Branch** = `main`, folder = `/ (root)`
+5. Click **Save**. Wait ~1 minute for the first build.
+6. Your files land at: `https://YOUR-USERNAME.github.io/YOUR-REPO/src/taskpane/taskpane.html`
 
 **Alternatives:** Netlify, Vercel, Azure Static Web Apps (all free tiers, drag-drop upload).
 
-### B. Update manifest.xml
+### B. Generate the production manifest
 
-Replace every `https://localhost:3000` with your hosted base URL:
+Use the included helper script — pass your GitHub Pages base URL:
 
-```xml
-<SourceLocation DefaultValue="https://YOUR-USERNAME.github.io/PPT-Control-Editor/src/taskpane/taskpane.html" />
-<!-- and the icon URLs, AppDomain, etc. -->
+```powershell
+.\build-prod-manifest.ps1 -BaseUrl "https://YOUR-USERNAME.github.io/YOUR-REPO"
 ```
+
+This creates `manifest-prod.xml` with:
+- All `localhost:3000` URLs swapped for your hosted URL
+- A fresh add-in GUID (so it won't clash with your dev version in PowerPoint's cache)
+- Updated AppDomain
+
+Verify the URL works: open `https://YOUR-USERNAME.github.io/YOUR-REPO/src/taskpane/taskpane.html` in a browser first. You should see the taskpane HTML render (no cert warning, no 404).
 
 ### C. Distribute
 
