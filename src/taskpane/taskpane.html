@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Shape Radius</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Office.js (BETA / preview library — required for PowerPointApi 1.10 adjustments) -->
+  <script src="https://appsforoffice.microsoft.com/lib/beta/hosted/office.js"></script>
+
+  <link rel="stylesheet" href="taskpane.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Shape Radius</h1>
+      <p class="hint">Select one or more shapes on the slide, then set their first adjustment (corner radius on rounded rectangles).</p>
+    </header>
+
+    <section class="row">
+      <label for="radiusInput">Radius (%)</label>
+      <input id="radiusInput" type="number" min="0" max="100" step="1" value="25" />
+    </section>
+
+    <section class="row auto-read-toggle">
+      <input id="autoRead" type="checkbox" checked />
+      <label for="autoRead">Auto-read from selected shape</label>
+    </section>
+
+    <section class="row mode-toggle">
+      <label class="toggle-label">Input mode:</label>
+      <div class="segmented-control">
+        <input type="radio" name="inputMode" id="modePercent" value="percent" checked />
+        <label for="modePercent">
+          <span class="mode-title">Radius (%)</span>
+          <span class="mode-hint">(rounded rectangles)</span>
+        </label>
+        <input type="radio" name="inputMode" id="modeRaw" value="raw" />
+        <label for="modeRaw">
+          <span class="mode-title">0&ndash;1 scale</span>
+          <span class="mode-hint">(arrows, stars, etc.)</span>
+        </label>
+      </div>
+    </section>
+
+    <section class="row buttons">
+      <button id="applyBtn" class="primary">Apply to selected</button>
+      <button id="readBtn">Read from first selected</button>
+    </section>
+
+    <section id="status" class="status" aria-live="polite"></section>
+  </main>
+
+  <script src="taskpane.js"></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+:root {
+  color-scheme: light dark;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: Canvas;
+  color: CanvasText;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  max-width: 360px;
+}
+
+h1 {
+  font-size: 16px;
+  margin: 0 0 4px 0;
+}
+
+.hint {
+  margin: 0;
+  color: GrayText;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.row label {
+  font-weight: 600;
+}
+
+.row input[type="number"] {
+  padding: 6px 8px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  background: Field;
+  color: FieldText;
+  font: inherit;
+}
+
+.row.buttons {
+  flex-direction: row;
+  gap: 8px;
+}
+
+button {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  background: ButtonFace;
+  color: ButtonText;
+  font: inherit;
+  cursor: pointer;
+}
+
+button:hover {
+  background: Highlight;
+  color: HighlightText;
+}
+
+button.primary {
+  background: #0078d4;
+  color: white;
+  border-color: #0078d4;
+}
+
+button.primary:hover {
+  background: #106ebe;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.status {
+  min-height: 1.4em;
+  font-size: 12px;
+  padding: 8px;
+  border-radius: 4px;
+  white-space: pre-wrap;
+}
+
+.status.ok {
+  background: rgba(0, 128, 0, 0.12);
+  color: #060;
+}
+
+.status.err {
+  background: rgba(200, 0, 0, 0.12);
+  color: #900;
+}
+
+.row.auto-read-toggle {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  background: rgba(0, 120, 212, 0.08);
+  border-radius: 4px;
+  border: 1px solid rgba(0, 120, 212, 0.2);
+}
+
+.row.auto-read-toggle input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.row.auto-read-toggle label {
+  cursor: pointer;
+  font-weight: normal;
+  user-select: none;
+}
+
+.row.mode-toggle {
+  gap: 8px;
+}
+
+.toggle-label {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.segmented-control {
+  display: flex;
+  width: 100%;
+  border: 1px solid #888;
+  border-radius: 4px;
+  overflow: hidden;
+  background: ButtonFace;
+}
+
+.segmented-control input[type="radio"] {
+  display: none;
+}
+
+.segmented-control label {
+  flex: 1;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  background: transparent;
+  color: ButtonText;
+  border-right: 1px solid #888;
+  transition: background 0.15s, color 0.15s;
+  font-weight: normal;
+  user-select: none;
+}
+
+.segmented-control .mode-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.segmented-control .mode-hint {
+  font-size: 11px;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+.segmented-control input[type="radio"]:checked + label .mode-hint {
+  opacity: 0.9;
+}
+
+.segmented-control label:last-of-type {
+  border-right: none;
+}
+
+.segmented-control label:hover {
+  background: rgba(0, 120, 212, 0.1);
+}
+
+.segmented-control input[type="radio"]:checked + label {
+  background: #0078d4;
+  color: white;
+  font-weight: 600;
+}
+
+.row input[type="checkbox"] + label {
+  font-weight: normal;
+}
+
+.row:has(input[type="checkbox"]) {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}

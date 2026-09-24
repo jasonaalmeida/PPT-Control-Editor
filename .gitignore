@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build artifacts
+*.zip
+dist/
+build/
+
+# Local dev certificates and configs
+.office-addin-dev-certs/
+*.pem
+*.crt
+*.key
+
+# IDE and editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Claude Code / local settings
+.claude/settings.local.json
+.claude/*.local.*
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local

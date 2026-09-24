@@ -1,0 +1,17 @@
+{
+  "name": "ppt-control-editor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PowerPoint add-in: set a numeric radius / first adjustment on one or many selected shapes.",
+  "scripts": {
+    "cert": "office-addin-dev-certs install",
+    "start": "office-addin-debugging start manifest.xml desktop",
+    "stop": "office-addin-debugging stop manifest.xml",
+    "serve": "http-server -S -C \"%USERPROFILE%/.office-addin-dev-certs/localhost.crt\" -K \"%USERPROFILE%/.office-addin-dev-certs/localhost.key\" -p 3000 -c-1 ."
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "office-addin-debugging": "^5.0.0",
+    "office-addin-dev-certs": "^1.12.0"
+  }
+}
