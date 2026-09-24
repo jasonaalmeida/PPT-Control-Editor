@@ -7,6 +7,8 @@
     "cert": "office-addin-dev-certs install",
     "start": "office-addin-debugging start manifest.xml desktop",
     "stop": "office-addin-debugging stop manifest.xml",
+    "start:prod": "office-addin-debugging start manifest-prod.xml desktop",
+    "stop:prod": "office-addin-debugging stop manifest-prod.xml",
     "serve": "http-server -S -C \"%USERPROFILE%/.office-addin-dev-certs/localhost.crt\" -K \"%USERPROFILE%/.office-addin-dev-certs/localhost.key\" -p 3000 -c-1 ."
   },
   "devDependencies": {
